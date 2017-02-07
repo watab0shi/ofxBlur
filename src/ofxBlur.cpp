@@ -101,7 +101,7 @@ ofxBlur::ofxBlur()
 ,brightness(1) {
 }
 
-void ofxBlur::setup(int width, int height, int radius, float shape, int passes, float downsample) {
+void ofxBlur::setup(int width, int height, int radius, float shape, int passes, float downsample, bool useFloatTexture) {
 	string blurSource = generateBlurSource(radius, shape);
 	if(ofGetLogLevel() == OF_LOG_VERBOSE) {
 		cout << "ofxBlur is loading blur shader:" << endl << blurSource << endl;
@@ -118,7 +118,9 @@ void ofxBlur::setup(int width, int height, int radius, float shape, int passes, 
 		combineShader.linkProgram();
 	}
 
-    base.allocate(width, height);
+    if(useFloatTexture)base.allocate(width, height);
+    else base.allocate(width, height, GL_RGB32F);
+    
     base.begin(); ofClear(0); base.end();
 
     ofFbo::Settings settings;
