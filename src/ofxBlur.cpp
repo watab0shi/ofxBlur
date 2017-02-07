@@ -118,8 +118,8 @@ void ofxBlur::setup(int width, int height, int radius, float shape, int passes, 
 		combineShader.linkProgram();
 	}
 
-    if(useFloatTexture)base.allocate(width, height);
-    else base.allocate(width, height, GL_RGB32F);
+    if(useFloatTexture)base.allocate(width, height, GL_RGB32F);
+    else base.allocate(width, height);
     
     base.begin(); ofClear(0); base.end();
 
