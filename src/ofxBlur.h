@@ -25,7 +25,8 @@ public:
 	void draw();
     void draw(ofRectangle rect);
 
-	ofTexture& getTextureReference();
+  OF_DEPRECATED_MSG("Use getTexture",ofTexture & getTextureReference());
+	ofTexture& getTexture();
 };
 
 // <3 kyle

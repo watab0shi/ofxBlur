@@ -45,7 +45,7 @@ void ofApp::draw() {
 	ofSetColor(255);
 	cam.draw(0, 0);
 	ofSetCircleResolution(64);
-	ofCircle(mouseX, mouseY, 32);
+	ofDrawCircle(mouseX, mouseY, 32);
 	blur.end();
 	
 	blur.draw();
